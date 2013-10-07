@@ -7,23 +7,54 @@ import java.awt.geom.Ellipse2D;
 public class Ball
 {
     private Ellipse2D.Double ballShape;
-    private int ballXposition;
-    private int ballYposition;
-    private int ballXspeed = 5;
-    private int ballYspeed = 5;
+    private int ballXspeed = 15;
+    private int ballYspeed = 15;
 
-    public Ball(int ballXposition, int ballYposition)//constructor
+    public Ball(int ballXpositionInitial, int ballYpositionInitial)//constructor
     {
-        this.ballXposition = ballXposition;
-        this.ballYposition = ballYposition;
-        ballShape = new Ellipse2D.Double(ballXposition, ballYposition, 50, 50);
+        ballShape = new Ellipse2D.Double(ballXpositionInitial, ballYpositionInitial, 50, 50);
     }
 
     public void paintSelf(Graphics2D g2)
     {
         g2.setStroke(new BasicStroke(6f));
-        g2.draw(ballShape);
-        ballShape.x += ballXspeed;
-        ballShape.y += ballYspeed;
+        g2.draw(getBallShape());
+        ballShape.x += getBallXspeed();
+        ballShape.y += getBallYspeed();
+    }
+
+    public double getBallx()
+    {
+        return getBallShape().x;
+    }
+
+    public double getBally()
+    {
+        return getBallShape().y;
+    }
+
+    public int getBallXspeed()
+    {
+        return ballXspeed;
+    }
+
+    public int getBallYspeed()
+    {
+        return ballYspeed;
+    }
+
+    public void setBallXspeed(int ballXspeed)
+    {
+        this.ballXspeed = ballXspeed;
+    }
+
+    public void setBallYspeed(int ballYspeed)
+    {
+        this.ballYspeed = ballYspeed;
+    }
+
+    public Ellipse2D.Double getBallShape()
+    {
+        return ballShape;
     }
 }
