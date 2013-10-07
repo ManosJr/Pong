@@ -1,7 +1,7 @@
 package pong;
 /*
  * copyright 2013 James Moore
- * rev 0.1 130928
+ * rev 0.2 131007
  */
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -83,7 +83,7 @@ public class Pong extends JComponent implements KeyListener, ActionListener
         {
             paddle.setPaddleYpos(paddle.getPaddleY() + 25);
         }
-        if (e.getKeyCode() == 38)//down
+        if (e.getKeyCode() == 38)//up
         {
            paddle.setPaddleYpos(paddle.getPaddleY() - 25);
         }
