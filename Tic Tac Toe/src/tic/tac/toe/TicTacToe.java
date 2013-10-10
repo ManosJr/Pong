@@ -2,9 +2,8 @@ package tic.tac.toe;
 
 /*
  * copyright 2013 James Moore
- * rev 0.1 131009
+ * rev 0.2 131010
  */
-
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -83,8 +82,7 @@ public class TicTacToe implements ActionListener
         {
             JOptionPane.showMessageDialog(null, "I'll have none of that.  Lose a turn");
             playCount++;
-        } 
-        else
+        } else
         {
             if (playCount % 2 == 0)
             {
@@ -94,43 +92,54 @@ public class TicTacToe implements ActionListener
                 clickedButton.setText("o");
             }
         }
-        
+
         if (button1.getText().equals(button2.getText()) && button1.getText().equals(button3.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button1.getText(), false);
         }
         if (button1.getText().equals(button4.getText()) && button1.getText().equals(button7.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button1.getText(), false);
         }
         if (button1.getText().equals(button5.getText()) && button1.getText().equals(button9.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button1.getText(), false);
         }
         if (button2.getText().equals(button5.getText()) && button2.getText().equals(button8.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button2.getText(), false);
         }
         if (button3.getText().equals(button6.getText()) && button3.getText().equals(button9.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button3.getText(), false);
         }
         if (button3.getText().equals(button5.getText()) && button3.getText().equals(button7.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button3.getText(), false);
         }
         if (button4.getText().equals(button5.getText()) && button4.getText().equals(button6.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button4.getText(), false);
         }
         if (button7.getText().equals(button8.getText()) && button7.getText().equals(button9.getText()))
         {
-            JOptionPane.showMessageDialog(null, "We have a winner!");
+            gameOver(button7.getText(), false);
         }
         if (playCount == 9)
         {
-            JOptionPane.showMessageDialog(null, "Cat's Game");
-            System.exit(0);
+            gameOver("Boring", true);
         }
+    }
+
+    public void gameOver(String winnerSymbol, boolean catsGame)
+    {
+        if (!catsGame)
+        {
+            JOptionPane.showMessageDialog(null, " Congrats, " + winnerSymbol + " you win!");
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "Cat's Game!");
+        }
+        System.exit(0);
     }
 }
